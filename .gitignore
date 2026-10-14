@@ -1,0 +1,12 @@
+# 비밀값
+.env
+.env.*
+!.env.example
+
+#로그
+*.log
+
+#로컬 데이터와 임시 파일
+data/
+tmp/
+*.bak
