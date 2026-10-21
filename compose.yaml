@@ -1,0 +1,16 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+  
+  nginx-exporter:
+    image: nginx/nginx-prometheus-exporter:1.5.1
+    command: 
+      - --nginx.scrape-uri=http://web:80/nginx_status
+
+volumes:
+  prometheus-data:
