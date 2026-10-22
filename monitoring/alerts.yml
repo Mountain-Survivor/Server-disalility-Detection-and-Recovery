@@ -1,0 +1,9 @@
+groups:
+  - name: nginx-alerts
+    rules:
+      - alert: NginxDown
+        expr: nginx_up == 0
+        for: 30s
+        annotations:
+          summary: "Nginx 상태 조회 실패"
+          
